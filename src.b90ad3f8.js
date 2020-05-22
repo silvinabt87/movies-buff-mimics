@@ -11,4 +11,4 @@ module.exports=function(t){return fetch(t).then(function(t){return t.text()})};
 },{}],0:[function(require,module,exports) {
 var b=require("z1Am");b.register("html",require("cUwr"));b.load([["index.html","s8zH"]]).then(function(){require("H99C");});
 },{}]},{},[0], null)
-//# sourceMappingURL=/src.b90ad3f8.js.map
+//# sourceMappingURL=src.b90ad3f8.js.map
