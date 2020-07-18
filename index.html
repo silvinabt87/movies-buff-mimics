@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="icon" href="film.svg"/>
   <title>The Movies Buff -- A Mimics Game</title>
 
 </head>
@@ -35,7 +36,7 @@
   <!-- Movie title -->
   <div>
     <div id="movie-output"></div>
-    <button type="button" id="movie-button" onclick="getMovie()" class="button">Shoot me!</button>
+    <button type="button" id="movie-button" class="button">Shoot me with a movie!</button>
   </div>
 
   <!-- Arrow -->
@@ -44,9 +45,18 @@
   </div>
 
   <!-- Timer -->
-  <section>
-    <button type="button" class="button">Start!</button>
-    <div></div>
+  <section id="timer">
+    <div >
+      <input type="number" id="minutes"></input>
+      <span>:</span>
+      <input type="number" id="seconds"></input>
+    </div>
+    <div id="timerProgress">
+      <span id="minutesDisplay">00</span>
+      <span>:</span>
+      <span id="secondsDisplay">00</span>
+    </div>
+    <button type="button" class="button" id="start">Start!</button>
   </section>
   </div>
   <script src="/src/index.js"></script>
