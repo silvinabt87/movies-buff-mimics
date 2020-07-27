@@ -160,10 +160,8 @@
 
   let interval;
   let secondsInput = document.getElementById("seconds");
-  // let seconds = 10;
   let minutesInput = document.getElementById("minutes");
-  let timerProgress = document.getElementById("timerProgress");
-  // let minutes = 3;
+  let done = document.getElementById("done");
   let secondsDisplay = document.getElementById("secondsDisplay");
   let minutesDisplay = document.getElementById("minutesDisplay");
 
@@ -175,43 +173,42 @@
   timer = () => {
     let minutes = parseInt(minutesInput.value);
     let seconds = parseInt(secondsInput.value);
+    if (minutes === "") {
+      minutesDisplay.innerText = "00";
+    }
+    seconds < 10
+      ? (secondsDisplay.innerText = "0" + seconds.toString())
+      : (secondsDisplay.innerText = seconds.toString());
+    minutes < 10
+      ? (minutesDisplay.innerText = "0" + minutes.toString())
+      : (minutesDisplay.innerText = minutes.toString());
 
     interval = setInterval(function () {
-      seconds < 10 ? (secondsDisplay.innerText = "0" + seconds) : seconds;
-      minutes < 10 ? (minutesDisplay.innerText = "0" + minutes) : minutes;
-      
       if (seconds > 0) {
         seconds--;
-        
+        seconds < 10
+          ? (secondsDisplay.innerText = "0" + seconds.toString())
+          : (secondsDisplay.innerText = seconds.toString());
+        console.log(seconds);
       } else if (minutes > 0) {
         minutes--;
         seconds = 60;
         seconds--;
-   
+        seconds < 10
+          ? (secondsDisplay.innerText = "0" + seconds.toString())
+          : (secondsDisplay.innerText = seconds.toString());
+        minutes < 10
+          ? (minutesDisplay.innerText = "0" + minutes.toString())
+          : (minutesDisplay.innerText = minutes.toString());
+        console.log(seconds);
+        console.log(minutes);
       } else {
         clearInterval(interval);
+        let p = document.createElement("p");
+        p.innerText = "TIME'S UP!";
+        done.appendChild(p);
         console.log("done");
       }
-    }, 1003);
+    }, 1000);
   };
-
-  //mientras los segundos Y los minutos sean mayores a cero, que corra un setinterval con la funcion que hace disminuir
-  //los segundos y los muestra en el segundero
-
-  // 1) tomar el valor de seconds y minutes.LISTO
-  // 2) tomar el valor de seconds y restarle 1--
-  //3) si llego a 00 segundos, q reste 1-- de minutos y setee segundos en 59
-  //4) que empiece a hacer lo mismo de vuelta, hasta que minutos y segundos lleguen a 0
 })();
-
-// if (seconds > 0) {
-//   seconds--;
-//   if (minutes > 0) {
-//     minutes--;
-//     seconds = 60;
-//     seconds--;
-//   } else {
-//     clearInterval(interval);
-//     console.log("done");
-//   }
-// }

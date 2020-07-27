@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   background-color: #17e9e0;
-  width: 100%;
-  height: auto;
   font-size: 25px;
+  overflow-x: hidden;
+  height: auto;
 }
 
 h1 {
@@ -29,6 +29,10 @@ h1 {
   font-size: 16px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.452);
   cursor: pointer;
+  margin: 10px;
+}
+
+#start {
   margin: 10px;
 }
 
@@ -62,5 +66,18 @@ img {
 
 #timerProgress {
   margin: 10px;
-  min-height: 100px;
+}
+
+.movie-class {
+  text-align: center;
+}
+
+@media screen and (max-width:480px) {
+  body {
+    overflow-x: hidden;
+    text-align: center;
+  }
+}
+#done{
+  min-height:70px;
 }
