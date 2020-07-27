@@ -201,8 +201,97 @@ function getRandom(items) {
   return items[Math.floor(Math.random() * items.length)];
 }
 
+function getRandomGenre() {
+  var genres = [{
+    id: 28,
+    name: "Action"
+  }, {
+    id: 12,
+    name: "Adventure"
+  }, {
+    id: 16,
+    name: "Animation"
+  }, {
+    id: 35,
+    name: "Comedy"
+  }, {
+    id: 80,
+    name: "Crime"
+  }, {
+    id: 99,
+    name: "Documentary"
+  }, {
+    id: 18,
+    name: "Drama"
+  }, {
+    id: 10751,
+    name: "Family"
+  }, {
+    id: 14,
+    name: "Fantasy"
+  }, {
+    id: 36,
+    name: "History"
+  }, {
+    id: 27,
+    name: "Horror"
+  }, {
+    id: 10402,
+    name: "Music"
+  }, {
+    id: 9648,
+    name: "Mystery"
+  }, {
+    id: 10749,
+    name: "Romance"
+  }, {
+    id: 878,
+    name: "Science Fiction"
+  }, {
+    id: 10770,
+    name: "TV Movie"
+  }, {
+    id: 53,
+    name: "Thriller"
+  }, {
+    id: 10752,
+    name: "War"
+  }, {
+    id: 37,
+    name: "Western"
+  }];
+  return getRandom(genres).id;
+}
+
+function randomSortBy() {
+  var values = ["popularity.asc", "popularity.desc", "release_date.asc", "release_date.desc", "revenue.asc", "revenue.desc", "primary_release_date.asc", "primary_release_date.desc", "original_title.asc", "original_title.desc", "vote_average.asc", "vote_average.desc", "vote_count.asc", "vote_count.desc"];
+  return getRandom(values);
+}
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomQueryParams() {
+  var page = getRandomInt(1, 5);
+  var sortBy = randomSortBy();
+  var withGenres = getRandomGenre();
+  return "page=".concat(page, "&sort_by=").concat(sortBy, "&with_genres=").concat(withGenres);
+}
+
 function getMovie() {
-  var url = "https://api.themoviedb.org/3/movie/popular?api_key=4bb244c6458b3ac69d076d9cff9adb88&language=es&page=1";
+  var queryParam = getRandomQueryParams();
+  var url = "https://api.themoviedb.org/3/movie/popular?api_key=4bb244c6458b3ac69d076d9cff9adb88&language=es&".concat(queryParam);
   fetch(url).then(function (result) {
     return result.json();
   }).then(function (data) {
@@ -213,7 +302,7 @@ function getMovie() {
     var originalTitle = movie.original_title;
     var posterPath = movie.poster_path;
     var imageUrl = "https://image.tmdb.org/t/p/w200/".concat(posterPath);
-    var newHTML = "\n      <div class=\"movie-found\">\n        <img src=\"".concat(imageUrl, "\"/>\n        <h3>").concat(title, "</h3>\n        <p>").concat(originalTitle, "<p>\n        \n      </div>\n      ");
+    var newHTML = "\n      <div class=\"movie-found\">\n        <img src=\"".concat(imageUrl, "\"/>\n        <h3>").concat(title, "</h3>\n        <p>").concat(originalTitle, "<p>\n\n      </div>\n      ");
     document.getElementById("movie-output").innerHTML = newHTML;
   }).catch(function (err) {
     alert(err);
@@ -221,6 +310,29 @@ function getMovie() {
 }
 
 document.getElementById("movie-button").onclick = getMovie;
+var minutes = document.getElementById("minutes");
+var seconds = document.getElementById("seconds");
+
+function startTimer(minutes, seconds) {
+  for (i = seconds; i > 0; i--) {
+    ;
+  }
+
+  if (i = 0) {
+    var _minutes = _minutes--;
+
+    var _seconds = 59;
+    return _minutes = _minutes.innerHTML;
+    return _seconds = _seconds.innerHTML;
+  }
+
+  console.log(minutes);
+  console.log(seconds);
+}
+
+;
+document.getElementById("timer").onclick = startTimer;
+document.getElementById("timer").addEventListener("click");
 },{"./styles.css":"src/styles.css","/index.html":"index.html"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -249,7 +361,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40017" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40943" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

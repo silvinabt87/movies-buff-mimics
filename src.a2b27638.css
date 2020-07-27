@@ -41,5 +41,22 @@
     justify-content: center;
   }
   
+  input {
+    border: transparent;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius:10px; 
+  }
+
+  #timer{
+    margin: 20px;
+  }
+
+  #input-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 /*# sourceMappingURL=/src.a2b27638.css.map */
