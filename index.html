@@ -23,33 +23,33 @@
     </div>
 
     <div>
-      <img src="/dist/2892617.svg" alt="popcorn" width="100px" />
+      <img src="/2892617.svg" alt="popcorn" width="100px" />
     </div>
   </section>
 
   <!-- Arrow -->
 
   <div>
-    <img src="/dist/Arrow-down.svg.png" alt="arrow" width="40px" />
+    <img src="/Arrow-down.svg.png" alt="arrow" width="40px" />
   </div>
 
   <!-- Movie title -->
- 
+
     <div id="movie-output"></div>
-  
+
   <button type="button" id="movie-button" class="button">Shoot me with a movie!</button>
 
   <!-- Arrow -->
   <div>
-    <img src="/dist/Arrow-down.svg.png" alt="arrow" width="40px" />
+    <img src="/Arrow-down.svg.png" alt="arrow" width="40px" />
   </div>
 
   <!-- Timer -->
   <section id="timer">
     <div >
-      <input type="number" id="minutes"></input>
+      <input type="number" id="minutes" min="0" value="0"></input>
       <span>:</span>
-      <input type="number" id="seconds"></input>
+      <input type="number" id="seconds" min="0" max="60" value="60"></input>
     </div>
     <div id="timerProgress">
       <span id="minutesDisplay">00</span>
